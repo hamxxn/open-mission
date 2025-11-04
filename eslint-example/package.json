@@ -1,0 +1,29 @@
+{
+  "name": "eslint-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,html}\""
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/prettier-config": "workspace:*",
+    "@types/node": "^22.15.3",
+    "@types/react": "18.2.74",
+    "@types/react-dom": "18.2.24",
+    "@vitejs/plugin-react-swc": "3.6.0",
+    "eslint": "8.57.0",
+    "typescript": "5.4.4",
+    "vite": "5.2.8"
+  },
+  "prettier": "@repo/prettier-config"
+}
