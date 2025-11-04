@@ -1,0 +1,12 @@
+{
+  "name": "@repo/tailwind-config",
+  "version": "1.0.0",
+  "devDependencies": {
+    "tailwindcss": "^4.1.16",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    "./shared-styles.css": "./shared-styles.css"
+  }
+}

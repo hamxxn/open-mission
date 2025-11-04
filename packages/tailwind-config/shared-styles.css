@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-*: initial;
+  /* White & Black */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Gray */
+  --color-gray-100: #fafafa;
+  --color-gray-150: #f5f5f5;
+  --color-gray-200: #eee;
+  --color-gray-300: #ddd;
+  --color-gray-400: #ccc;
+  --color-gray-500: #aaa;
+  --color-gray-600: #999;
+  --color-gray-700: #666;
+  --color-gray-800: #555;
+  --color-gray-900: #333;
+
+  /* Blue Gray */
+  --color-blue-gray-100: #d5eaf1;
+  --color-blue-gray-500: #5f7997;
+  --color-blue: #279cf6;
+
+  /* Red */
+  --color-red: #ff0000;
+  --color-red-800: #fc5555;
+
+  /* Green */
+  --color-green: #0eaf7a;
+
+  /* Cyan */
+  --color-cyan: #2c3e50;
+
+  /* EN head */
+  --text-en-head1: 4rem;
+  --text-en-head2: 2.4rem;
+}
+
+@layer base {
+  html {
+    font-family: Pretendard, sans-serif;
+    font-size: 62.5%;
+  }
+}
+
+@layer components {
+  /* 공통 컴포넌트 스타일 */
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  /* Custom text size utilities */
+  .text-en-head1 {
+    font-size: var(--text-en-head1);
+  }
+
+  .text-en-head2 {
+    font-size: var(--text-en-head2);
+  }
+}
