@@ -16,10 +16,10 @@ export default function Header() {
   };
   return (
     <div className="mb-[7.2rem]">
-      <header className="fixed top-0 left-0 right-0 z-10 flex h-[7.2rem] justify-between items-center px-8 border-b border-gray-300">
+      <header className="fixed bg-white top-0 left-0 right-0 z-10 flex h-[7.2rem] justify-between items-center px-8 border-b border-gray-300">
         <h1 className="flex items-center gap-4">
           <Image src={logo} alt="logo" width={20} height={20} />
-          <span className="text-gray-900 text-head2 text-nowrap">
+          <span className="text-gray-900 text-head3 text-nowrap">
             {t("title")}
           </span>
         </h1>

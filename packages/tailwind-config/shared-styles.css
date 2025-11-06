@@ -34,8 +34,9 @@
   --color-cyan: #2c3e50;
 
   /* head */
-  --text-head1: 2rem;
-  --text-head2: 1.8rem;
+  --text-head1: 3.5rem;
+  --text-head2: 3rem;
+  --text-head3: 1.8rem;
 
   /* body */
   --text-body1: 1.6rem;
@@ -84,6 +85,11 @@
 
   .text-head2 {
     font-size: var(--text-head2);
+    font-weight: 700;
+  }
+
+  .text-head3 {
+    font-size: var(--text-head3);
     font-weight: 700;
   }
 
