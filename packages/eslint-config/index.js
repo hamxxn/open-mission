@@ -3,24 +3,8 @@ module.exports = {
   extends: ["@rushstack/eslint-config/profile/web-app"],
   rules: {
     "@typescript-eslint/explicit-function-return-type": "off",
-    // 변수, 함수, 클래스, 인터페이스, 타입 별칭, 열거형 이름 규칙
     "@typescript-eslint/naming-convention": [
       "warn",
-      // camelCase 변수, PascalCase 변수, UPPER_CASE 변수 허용
-      {
-        selector: "variable",
-        format: ["camelCase", "PascalCase", "UPPER_CASE"],
-      },
-      // camelCase 함수, PascalCase 함수 허용
-      {
-        selector: "function",
-        format: ["camelCase", "PascalCase"],
-      },
-      // PascalCase 클래스, interfaces, type aliases, enums 허용
-      {
-        selector: "typeLike",
-        format: ["PascalCase"],
-      },
       // interface 앞에 I 사용 불가
       {
         selector: "interface",
