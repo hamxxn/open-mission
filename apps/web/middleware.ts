@@ -20,3 +20,10 @@ export default function middleware(request: NextRequest) {
 
   return intlMiddleware(request);
 }
+
+export const config = {
+  matcher: [
+    // 모든 경로에서 실행하되 정적 파일은 제외
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+  ],
+};
