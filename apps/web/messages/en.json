@@ -1,4 +1,7 @@
 {
+  "header": {
+    "title": "TechCourse"
+  },
   "home": {
     "hello": "Hello"
   }

@@ -10,7 +10,8 @@
     "paths": {
       "@/*": ["./app/*"],
       "@i18n/*": ["./i18n/*"],
-      "@components/*": ["./app/components/*"]
+      "@components/*": ["./app/components/*"],
+      "@assets/*": ["./public/assets/*"]
     }
   },
   "include": [
