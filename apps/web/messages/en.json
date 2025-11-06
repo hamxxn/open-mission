@@ -2,7 +2,11 @@
   "header": {
     "title": "TechCourse"
   },
-  "home": {
-    "hello": "Hello"
+
+  "applications": {
+    "title": "Applications",
+    "techcourse": "Woowa Tech Course",
+    "web": "Web Front-End",
+    "generation": "th Session"
   }
 }

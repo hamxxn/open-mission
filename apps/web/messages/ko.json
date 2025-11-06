@@ -2,7 +2,10 @@
   "header": {
     "title": "테크코스"
   },
-  "home": {
-    "hello": "안녕하세요"
+  "applications": {
+    "title": "내 지원서",
+    "techcourse": "우아한테크코스(Woowa Tech Course)",
+    "web": "웹 프론트엔드",
+    "generation": "기"
   }
 }
