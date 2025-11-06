@@ -4,7 +4,7 @@
   --color-*: initial;
   /* White & Black */
   --color-white: #ffffff;
-  --color-black: #000000;
+  --color-black: #000;
 
   /* Gray */
   --color-gray-100: #fafafa;
@@ -33,15 +33,28 @@
   /* Cyan */
   --color-cyan: #2c3e50;
 
-  /* EN head */
-  --text-en-head1: 4rem;
-  --text-en-head2: 2.4rem;
+  /* head */
+  --text-head1: 2rem;
+  --text-head2: 1.8rem;
+
+  /* body */
+  --text-body1: 1.6rem;
+  --text-body2: 1.4rem;
+
+  /* caption */
+  --text-caption1: 1.2rem;
+  --text-caption2: 1rem;
 }
 
 @layer base {
   html {
     font-family: Pretendard, sans-serif;
     font-size: 62.5%;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 }
 
@@ -64,11 +77,33 @@
   }
 
   /* Custom text size utilities */
-  .text-en-head1 {
-    font-size: var(--text-en-head1);
+  .text-head1 {
+    font-size: var(--text-head1);
+    font-weight: 700;
   }
 
-  .text-en-head2 {
-    font-size: var(--text-en-head2);
+  .text-head2 {
+    font-size: var(--text-head2);
+    font-weight: 700;
+  }
+
+  .text-body1 {
+    font-size: var(--text-body1);
+    font-weight: 500;
+  }
+
+  .text-body2 {
+    font-size: var(--text-body2);
+    font-weight: 500;
+  }
+
+  .text-caption1 {
+    font-size: var(--text-caption1);
+    font-weight: 400;
+  }
+
+  .text-caption2 {
+    font-size: var(--text-caption2);
+    font-weight: 400;
   }
 }
