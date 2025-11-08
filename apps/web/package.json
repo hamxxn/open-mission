@@ -8,10 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "download": "node translate/download.js"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
+    "dotenv": "^17.2.3",
+    "google-auth-library": "^10.5.0",
+    "google-spreadsheet": "^5.0.2",
+    "mkdirp": "^3.0.1",
     "next": "^16.0.0",
     "next-intl": "^4.4.0",
     "react": "^19.2.0",
