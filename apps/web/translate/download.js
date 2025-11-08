@@ -1,18 +1,12 @@
 import fs from "fs";
-import dotenv from "dotenv";
+import { loadSpreadsheet, getSheetById } from "./util/google-sheet.js";
 import {
-  loadSpreadsheet,
   GOOGLE_SHEET_ID,
   GOOGLE_PRIVATE_KEY,
   SHEET_HEADER_MAP,
   SHEET_ID,
-} from "./index.js";
-
-dotenv.config();
-
-const getSheetById = (doc, id) => {
-  return doc.sheetsByIndex[id];
-};
+} from "./constants/translate.js";
+import { ERROR_MESSAGES } from "./constants/errors.js";
 
 const getSheetData = async (sheet) => {
   const rows = await sheet.getRows();
@@ -44,19 +38,21 @@ const writeJsonFile = (data, fileName) => {
 };
 
 async function downloadMessages() {
-  if (!GOOGLE_SHEET_ID || !GOOGLE_PRIVATE_KEY) {
-    throw new Error("GOOGLE_SHEET_ID or GOOGLE_PRIVATE_KEY is not set");
+  if (!GOOGLE_SHEET_ID) {
+    throw new Error(ERROR_MESSAGES.GOOGLE_SHEET_ID_NOT_SET);
   }
-
+  if (!GOOGLE_PRIVATE_KEY) {
+    throw new Error(ERROR_MESSAGES.GOOGLE_PRIVATE_KEY_NOT_SET);
+  }
   const doc = await loadSpreadsheet();
 
   if (!doc) {
-    throw new Error("Failed to load spreadsheet");
+    throw new Error(ERROR_MESSAGES.FAILED_TO_LOAD_SPREADSHEET);
   }
 
   const sheet = getSheetById(doc, SHEET_ID);
   if (!sheet) {
-    throw new Error("Sheet not found");
+    throw new Error(ERROR_MESSAGES.SHEET_NOT_FOUND);
   }
   const data = await getSheetData(sheet);
   const { koData, enData, deData } = await getLngData(data);

@@ -1,23 +1,17 @@
-import {
-  SHEET_HEADER_MAP,
-  loadSpreadsheet,
-  LOCALE_PATH,
-  GOOGLE_SHEET_TITLE,
-  SHEET_ID,
-} from "./index.js";
 import fs from "node:fs/promises";
-
-import dotenv from "dotenv";
-dotenv.config();
-
-const getSheetById = (doc, id) => {
-  return doc.sheetsByIndex[id];
-};
+import { loadSpreadsheet, getSheetById } from "./util/google-sheet.js";
+import {
+  GOOGLE_SHEET_TITLE,
+  SHEET_HEADER_MAP,
+  SHEET_ID,
+  LOCALE_PATH,
+} from "./constants/translate.js";
+import { ERROR_MESSAGES } from "./constants/errors.js";
 
 async function uploadMessages() {
   const doc = await loadSpreadsheet();
   if (!doc) {
-    throw new Error("Failed to load spreadsheet");
+    throw new Error(ERROR_MESSAGES.FAILED_TO_LOAD_SPREADSHEET);
   }
   const lngFiles = await fs.readdir(LOCALE_PATH);
   let keyMap = {};
