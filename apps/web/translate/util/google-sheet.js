@@ -5,6 +5,7 @@ import {
   GOOGLE_SHEET_ID,
   GOOGLE_CLIENT_EMAIL,
   GOOGLE_PRIVATE_KEY,
+  SORT_ORDER,
 } from "../constants/translate.js";
 
 dotenv.config();
@@ -26,4 +27,33 @@ export async function loadSpreadsheet() {
 
 export function getSheetById(doc, id) {
   return doc.sheetsByIndex[id];
+}
+
+export async function sortSheet(doc, sheet) {
+  const request = {
+    sortRange: {
+      range: {
+        sheetId: sheet.sheetId,
+        startRowIndex: 1,
+        endRowIndex: sheet.rowCount,
+        startColumnIndex: 0,
+        endColumnIndex: sheet.columnCount,
+      },
+      sortSpecs: [
+        {
+          dimensionIndex: 0,
+          sortOrder: SORT_ORDER,
+        },
+      ],
+    },
+  };
+
+  try {
+    await doc.sheetsApi.post(`:batchUpdate`, {
+      json: { requests: [request] },
+    });
+    console.log("✅ Sheet sorted successfully");
+  } catch (error) {
+    console.error("❌ Error sorting sheet:", error);
+  }
 }

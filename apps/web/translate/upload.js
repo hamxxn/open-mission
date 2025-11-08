@@ -1,5 +1,9 @@
 import fs from "node:fs/promises";
-import { loadSpreadsheet, getSheetById } from "./util/google-sheet.js";
+import {
+  loadSpreadsheet,
+  getSheetById,
+  sortSheet,
+} from "./util/google-sheet.js";
 import {
   GOOGLE_SHEET_TITLE,
   SHEET_HEADER_MAP,
@@ -21,7 +25,13 @@ async function uploadMessages() {
     keyMap = getKeyMap(keyMap, JSON.parse(raw), file);
   }
 
-  await updateTranslationsFromKeyMapToSheet(doc, keyMap);
+  let sheet = getSheetById(doc, SHEET_ID);
+  if (!sheet) {
+    sheet = await createSheet(doc, GOOGLE_SHEET_TITLE);
+  }
+
+  await updateTranslationsFromKeyMapToSheet(sheet, keyMap);
+  await sortSheet(doc, sheet);
 }
 
 const getKeyMap = (keyMap, data, lng) => {
@@ -35,12 +45,7 @@ const getKeyMap = (keyMap, data, lng) => {
   return keyMap;
 };
 
-const updateTranslationsFromKeyMapToSheet = async (doc, keyMap) => {
-  let sheet = getSheetById(doc, SHEET_ID);
-  if (!sheet) {
-    sheet = await createSheet(doc, GOOGLE_SHEET_TITLE);
-    console.log("Created sheet:", sheet);
-  }
+const updateTranslationsFromKeyMapToSheet = async (sheet, keyMap) => {
   const rows = await sheet.getRows();
   const existingKey = {};
   const addedRows = [];

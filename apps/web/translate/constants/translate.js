@@ -17,3 +17,4 @@ export const SHEET_HEADER_MAP = {
 export const LOCALE_PATH = "./messages";
 export const GOOGLE_SHEET_TITLE = "open-mission-messages";
 export const SHEET_ID = 0;
+export const SORT_ORDER = "ASCENDING";
