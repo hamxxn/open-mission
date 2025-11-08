@@ -5,12 +5,13 @@ import {
   GOOGLE_SHEET_ID,
   GOOGLE_PRIVATE_KEY,
   SHEET_HEADER_MAP,
+  SHEET_ID,
 } from "./index.js";
 
 dotenv.config();
 
-const getSheetCount = (doc) => {
-  return doc.sheetCount;
+const getSheetById = (doc, id) => {
+  return doc.sheetsByIndex[id];
 };
 
 const getSheetData = async (sheet) => {
@@ -25,14 +26,14 @@ const getSheetData = async (sheet) => {
 
 const getLngData = async (data) => {
   const koData = {};
-  const engData = {};
+  const enData = {};
   const deData = {};
   data.forEach((item) => {
     koData[item.key] = item.ko;
-    engData[item.key] = item.eng;
+    enData[item.key] = item.en;
     deData[item.key] = item.de;
   });
-  return { koData, engData, deData };
+  return { koData, enData, deData };
 };
 
 const writeJsonFile = (data, fileName) => {
@@ -48,21 +49,21 @@ async function downloadMessages() {
   }
 
   const doc = await loadSpreadsheet();
+
   if (!doc) {
     throw new Error("Failed to load spreadsheet");
   }
 
-  const sheetsCount = getSheetCount(doc);
-
-  for (let i = 0; i < sheetsCount; i++) {
-    const sheet = doc.sheetsByIndex[i];
-    const data = await getSheetData(sheet);
-    const { koData, engData, deData } = await getLngData(data);
-
-    writeJsonFile(koData, "ko");
-    writeJsonFile(engData, "en");
-    writeJsonFile(deData, "de");
+  const sheet = getSheetById(doc, SHEET_ID);
+  if (!sheet) {
+    throw new Error("Sheet not found");
   }
+  const data = await getSheetData(sheet);
+  const { koData, enData, deData } = await getLngData(data);
+
+  writeJsonFile(koData, "ko");
+  writeJsonFile(enData, "en");
+  writeJsonFile(deData, "de");
 }
 
 (async () => {
