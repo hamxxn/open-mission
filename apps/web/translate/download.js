@@ -9,7 +9,40 @@ import {
 
 dotenv.config();
 
-async function makeJsonFile() {
+const getSheetCount = (doc) => {
+  return doc.sheetCount;
+};
+
+const getSheetData = async (sheet) => {
+  const rows = await sheet.getRows();
+  return rows.map((row) => ({
+    key: row.get(SHEET_HEADER_MAP.key),
+    ko: row.get(SHEET_HEADER_MAP.ko),
+    en: row.get(SHEET_HEADER_MAP.en),
+    de: row.get(SHEET_HEADER_MAP.de),
+  }));
+};
+
+const getLngData = async (data) => {
+  const koData = {};
+  const engData = {};
+  const deData = {};
+  data.forEach((item) => {
+    koData[item.key] = item.ko;
+    engData[item.key] = item.eng;
+    deData[item.key] = item.de;
+  });
+  return { koData, engData, deData };
+};
+
+const writeJsonFile = (data, fileName) => {
+  fs.writeFileSync(
+    `./messages/${fileName}.json`,
+    JSON.stringify(data, null, 2)
+  );
+};
+
+async function downloadMessages() {
   if (!GOOGLE_SHEET_ID || !GOOGLE_PRIVATE_KEY) {
     throw new Error("GOOGLE_SHEET_ID or GOOGLE_PRIVATE_KEY is not set");
   }
@@ -18,38 +51,23 @@ async function makeJsonFile() {
   if (!doc) {
     throw new Error("Failed to load spreadsheet");
   }
-  const sheetsCount = doc.sheetCount;
+
+  const sheetsCount = getSheetCount(doc);
 
   for (let i = 0; i < sheetsCount; i++) {
     const sheet = doc.sheetsByIndex[i];
-    const rows = await sheet.getRows();
+    const data = await getSheetData(sheet);
+    const { koData, engData, deData } = await getLngData(data);
 
-    const data = rows.map((row) => ({
-      key: row.get(SHEET_HEADER_MAP.key),
-      ko: row.get(SHEET_HEADER_MAP.ko),
-      en: row.get(SHEET_HEADER_MAP.en),
-      de: row.get(SHEET_HEADER_MAP.de),
-    }));
-
-    const koData = {};
-    const engData = {};
-    const deData = {};
-
-    data.forEach((item) => {
-      koData[item.key] = item.ko;
-      engData[item.key] = item.eng;
-      deData[item.key] = item.de;
-    });
-
-    fs.writeFileSync(`./messages/ko.json`, JSON.stringify(koData, null, 2));
-    fs.writeFileSync(`./messages/en.json`, JSON.stringify(engData, null, 2));
-    fs.writeFileSync(`./messages/de.json`, JSON.stringify(deData, null, 2));
+    writeJsonFile(koData, "ko");
+    writeJsonFile(engData, "en");
+    writeJsonFile(deData, "de");
   }
 }
 
 (async () => {
   try {
-    await makeJsonFile();
+    await downloadMessages();
     console.log("✅ Downloaded messages successfully");
   } catch (error) {
     console.error("❌ Failed to download messages:", error.message);
