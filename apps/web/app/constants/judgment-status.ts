@@ -1,9 +1,8 @@
 export const JUDGMENT_STATUS = {
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  PASSED: "PASSED",
-  FAILED: "FAILED",
+  PENDING: "대기",
+  RUNNING: "실행 중",
+  PASSED: "통과",
+  FAILED: "실패",
 } as const;
 
-export type JudgmentStatus =
-  (typeof JUDGMENT_STATUS)[keyof typeof JUDGMENT_STATUS];
+export type JudgmentStatus = keyof typeof JUDGMENT_STATUS;

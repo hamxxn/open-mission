@@ -1,9 +1,8 @@
 export const MISSION_STATUS = {
-  NOT_STARTED: "NOT_STARTED",
-  OPEN: "OPEN",
-  SUBMITTABLE: "SUBMITTABLE",
-  CLOSED: "CLOSED",
+  NOT_STARTED: "시작 전",
+  OPEN: "진행 중",
+  SUBMITTABLE: "제출 가능",
+  CLOSED: "마감",
 } as const;
 
-export type MissionStatus =
-  (typeof MISSION_STATUS)[keyof typeof MISSION_STATUS];
+export type MissionStatus = keyof typeof MISSION_STATUS;

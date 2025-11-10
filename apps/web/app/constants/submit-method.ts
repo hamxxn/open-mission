@@ -4,5 +4,4 @@ export const SUBMISSION_METHOD = {
   FORM: "FORM",
 } as const;
 
-export type SubmissionMethod =
-  (typeof SUBMISSION_METHOD)[keyof typeof SUBMISSION_METHOD];
+export type SubmissionMethod = keyof typeof SUBMISSION_METHOD;
