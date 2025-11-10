@@ -3,8 +3,9 @@
 import React from "react";
 import { usePathname, useRouter } from "@i18n/navigation";
 import Image from "next/image";
-import logo from "@assets/logo.png";
 import { useTranslations } from "next-intl";
+
+import logo from "@public/assets/logo.png";
 
 export default function Header() {
   const t = useTranslations("header");
