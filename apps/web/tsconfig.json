@@ -11,7 +11,11 @@
       "@/*": ["./app/*"],
       "@i18n/*": ["./i18n/*"],
       "@components/*": ["./app/components/*"],
-      "@assets/*": ["./public/assets/*"]
+      "@constants/*": ["./app/constants/*"],
+      "@assets/*": ["./app/assets/*"],
+      "@public/*": ["./public/*"],
+      "@type/*": ["./app/types/*"],
+      "@styles/*": ["./app/styles/*"]
     }
   },
   "include": [
@@ -19,7 +23,8 @@
     "**/*.tsx",
     "next-env.d.ts",
     "next.config.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "translate/index.js"
   ],
   "exclude": ["node_modules"]
 }
