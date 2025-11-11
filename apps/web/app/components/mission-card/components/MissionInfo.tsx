@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { useRouter } from "@i18n/navigation";
 
 import { Mission } from "@type/mission";
 import { formatDate } from "@utils/format-date";
@@ -25,7 +26,7 @@ export default function MissionInfo({
   status,
 }: MissionInfoProps) {
   const t = useTranslations("card");
-
+  const router = useRouter();
   const isNotReady = submissionStartDateTime > new Date();
   const isNotSubmittable = status !== "OPEN" && status !== "SUBMITTABLE";
   const isSubmitDisabled = submitted || isNotReady || isNotSubmittable;
@@ -36,6 +37,10 @@ export default function MissionInfo({
     return t("buttons.submit");
   };
 
+  const handleViewButtonClick = () => {
+    router.push(`/mission/${week}`);
+  };
+
   return (
     <header className="flex flex-col">
       <div className="flex justify-between">
@@ -44,7 +49,10 @@ export default function MissionInfo({
           {t("week")}
         </h3>
         <div className="flex items-center gap-2">
-          <Button disabled={status !== "OPEN" && status !== "SUBMITTABLE"}>
+          <Button
+            disabled={status !== "OPEN" && status !== "SUBMITTABLE"}
+            onClick={handleViewButtonClick}
+          >
             {t("buttons.view")}
           </Button>
           <Button disabled={isSubmitDisabled}>{getSubmitButtonText()}</Button>
