@@ -88,6 +88,6 @@ export const mockupMissionList: Mission[] = [
     status: "OPEN",
     submitted: false,
     testable: false,
-    judgment: null,
+    judgment: undefined,
   },
 ];

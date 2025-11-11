@@ -22,5 +22,5 @@ export interface Mission {
   status: MissionStatus;
   submitted: boolean;
   testable: boolean;
-  judgment: Judgment | null;
+  judgment: Judgment | undefined;
 }

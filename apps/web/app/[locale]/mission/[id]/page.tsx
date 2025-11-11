@@ -1,5 +1,3 @@
-import React from "react";
-
 import { missionMockup } from "@constants/mission-mockup";
 import List from "@/[locale]/mission/[id]/components/list";
 import Section from "@/[locale]/mission/[id]/(.)section/Section";
