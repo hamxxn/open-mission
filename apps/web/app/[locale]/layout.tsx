@@ -1,8 +1,9 @@
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import "../styles/global.css";
 import { getTimeZone, setRequestLocale } from "next-intl/server";
-import { routing } from "../../i18n/routing";
-import Header from "../components/header/Header";
+import { routing } from "@i18n/routing";
+
+import "@styles/global.css";
+import Header from "@components/header/Header";
 
 export default async function RootLayout({
   children,
