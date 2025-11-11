@@ -78,37 +78,37 @@
   }
 
   /* Custom text size utilities */
-  .text-head1 {
+  .ko-text-head1 {
     font-size: var(--text-head1);
     font-weight: 700;
   }
 
-  .text-head2 {
+  .ko-text-head2 {
     font-size: var(--text-head2);
     font-weight: 700;
   }
 
-  .text-head3 {
+  .ko-text-head3 {
     font-size: var(--text-head3);
     font-weight: 700;
   }
 
-  .text-body1 {
+  .ko-text-body1 {
     font-size: var(--text-body1);
     font-weight: 500;
   }
 
-  .text-body2 {
+  .ko-text-body2 {
     font-size: var(--text-body2);
     font-weight: 500;
   }
 
-  .text-caption1 {
+  .ko-text-caption1 {
     font-size: var(--text-caption1);
     font-weight: 400;
   }
 
-  .text-caption2 {
+  .ko-text-caption2 {
     font-size: var(--text-caption2);
     font-weight: 400;
   }
