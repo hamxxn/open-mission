@@ -15,7 +15,8 @@
       "@assets/*": ["./app/assets/*"],
       "@public/*": ["./public/*"],
       "@type/*": ["./app/types/*"],
-      "@styles/*": ["./app/styles/*"]
+      "@styles/*": ["./app/styles/*"],
+      "@utils/*": ["./app/utils/*"]
     }
   },
   "include": [
