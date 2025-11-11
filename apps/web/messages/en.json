@@ -1,12 +1,41 @@
 {
+  "applications": {
+    "generation": "th Session",
+    "techcourse": "Woowa Tech Course",
+    "title": "Applications",
+    "web": "Web Front-End"
+  },
+  "card": {
+    "buttons": {
+      "ready": "Preparing",
+      "submit": "Submit",
+      "submitted": "Submission completed",
+      "test": "Running example tests",
+      "view": "View assignment"
+    },
+    "precourse": "Precourse",
+    "testResult": {
+      "commit": "Run example tests Commit",
+      "description": "It may take 3-5 minutes for the example test run to complete.",
+      "modal": {
+        "info1": "Sample test results do not correlate with actual scoring results.",
+        "info2": "You must submit your assignment to run the example tests.",
+        "info3": "You will not be able to run the example tests after the submission deadline.",
+        "info4": "Your submission will be graded based on your pull request, even if you don't run any example tests."
+      },
+      "test": "Running example tests",
+      "title": "Example test results"
+    },
+    "week": "Week"
+  },
   "header": {
     "title": "TechCourse"
   },
-
-  "applications": {
-    "title": "Applications",
-    "techcourse": "Woowa Tech Course",
-    "web": "Web Front-End",
-    "generation": "th Session"
+  "mission": {
+    "buttons": {
+      "back": "Go back",
+      "ready": "Preparing",
+      "submit": "Submit"
+    }
   }
 }

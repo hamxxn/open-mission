@@ -1,11 +1,41 @@
 {
+  "applications": {
+    "generation": ". Sitzung",
+    "techcourse": "Woowa Tech Course",
+    "title": "Applications",
+    "web": "Web Front-End"
+  },
+  "card": {
+    "buttons": {
+      "ready": "Vorbereitung",
+      "submit": "Einreichen",
+      "submitted": "Einreichung abgeschlossen",
+      "test": "Ausführen von Beispieltests",
+      "view": "Aufgabe anzeigen"
+    },
+    "precourse": "Precourse",
+    "testResult": {
+      "commit": "Beispieltests ausführen Commit",
+      "description": "Der Beispieltestlauf kann 3-5 Minuten dauern.",
+      "modal": {
+        "info1": "Die Ergebnisse von Stichprobentests korrelieren nicht mit den tatsächlichen Testergebnissen.",
+        "info2": "Sie müssen Ihre Aufgabe einreichen, um die Beispieltests ausführen zu können.",
+        "info3": "Nach Ablauf der Abgabefrist können Sie die Beispieltests nicht mehr ausführen.",
+        "info4": "Ihre Einreichung wird anhand Ihres Pull Requests bewertet, auch wenn Sie keine Beispieltests ausführen."
+      },
+      "test": "Ausführen von Beispieltests",
+      "title": "Beispielhafte Testergebnisse"
+    },
+    "week": "Woche"
+  },
   "header": {
     "title": "TechCourse"
   },
-  "applications": {
-    "title": "Applications",
-    "techcourse": "Woowa Tech Course",
-    "web": "Web Front-End",
-    "generation": ". Sitzung"
+  "mission": {
+    "buttons": {
+      "back": "Geh zurück",
+      "ready": "Vorbereitung",
+      "submit": "Einreichen"
+    }
   }
 }

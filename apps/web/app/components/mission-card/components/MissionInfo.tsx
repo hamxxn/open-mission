@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@i18n/navigation";
 
 import { Mission } from "@type/mission";
@@ -27,6 +27,8 @@ export default function MissionInfo({
 }: MissionInfoProps) {
   const t = useTranslations("card");
   const router = useRouter();
+  const locale = useLocale();
+  const isKorean = locale === "ko";
   const isNotReady = submissionStartDateTime > new Date();
   const isNotSubmittable = status !== "OPEN" && status !== "SUBMITTABLE";
   const isSubmitDisabled = submitted || isNotReady || isNotSubmittable;
@@ -45,8 +47,9 @@ export default function MissionInfo({
     <header className="flex flex-col">
       <div className="flex justify-between">
         <h3 className="text-gray-900 ko-text-head2">
-          {week}
-          {t("week")}
+          {isKorean
+            ? `${week} ${t("week")} ${t("precourse")}`
+            : `${t("week")}${week} ${t("precourse")}`}
         </h3>
         <div className="flex items-center gap-2">
           <Button
