@@ -34,13 +34,18 @@ async function uploadMessages() {
   await sortSheet(doc, sheet);
 }
 
-const getKeyMap = (keyMap, data, lng) => {
+const getKeyMap = (keyMap, data, lng, prefix = "") => {
   const lngKey = lng.split(".")[0];
   for (const [key, value] of Object.entries(data)) {
-    if (!keyMap[key]) {
-      keyMap[key] = {};
+    const fullKey = prefix ? `${prefix}.${key}` : key;
+    if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+      getKeyMap(keyMap, value, lng, fullKey);
+    } else {
+      if (!keyMap[fullKey]) {
+        keyMap[fullKey] = {};
+      }
+      keyMap[fullKey][lngKey] = value;
     }
-    keyMap[key][lngKey] = value;
   }
   return keyMap;
 };
