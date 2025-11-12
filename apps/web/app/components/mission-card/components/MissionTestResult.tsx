@@ -6,9 +6,9 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Judgment } from "@type/mission";
-import { Button } from "@components/button/Button";
-import ic_info from "@assets/ic_info.svg";
+import type { Judgment } from "@type/index";
+import { Button } from "@components/index";
+import { ic_info } from "@assets/index";
 
 const TestInfoModal = dynamic(
   () =>

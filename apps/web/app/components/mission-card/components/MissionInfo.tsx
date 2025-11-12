@@ -1,9 +1,9 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@i18n/navigation";
 
-import { Mission } from "@type/mission";
+import type { Mission } from "@type/index";
 import { formatDate } from "@utils/format-date";
-import { Button } from "@components/button/Button";
+import { Button } from "@components/index";
 
 type MissionInfoProps = Pick<
   Mission,
