@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useVirtualizer } from "@tanstack/react-virtual";
 
 import ic_down from "@assets/ic_down.svg";
 import ic_up from "@assets/ic_up.svg";
 import { mockupMissionList } from "@constants/mockup";
 import MissionCard from "@components/mission-card/MissionCard";
-import { useVirtualizer } from "@tanstack/react-virtual";
 
 export default function PageClient() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -14,8 +14,8 @@ export default function PageClient() {
   const handlePanelClick = () => {
     setIsPanelOpen(!isPanelOpen);
   };
-  const containerRef = useRef<HTMLDivElement>(null);
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const virtualizer = useVirtualizer({
     count: mockupMissionList.length,
     getScrollElement: () => containerRef.current,
