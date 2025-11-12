@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +9,14 @@ import Image from "next/image";
 import { Judgment } from "@type/mission";
 import { Button } from "@components/button/Button";
 import ic_info from "@assets/ic_info.svg";
-import TestInfoModal from "@components/mission-card/@modal/(.)test-info-modal/TestInfoModal";
+
+const TestInfoModal = dynamic(
+  () =>
+    import("@components/mission-card/@modal/(.)test-info-modal/TestInfoModal"),
+  {
+    ssr: false,
+  }
+);
 
 interface MissionTestResultProps {
   testable: boolean;
