@@ -3,10 +3,9 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useVirtualizer } from "@tanstack/react-virtual";
 
-import ic_down from "@assets/ic_down.svg";
-import ic_up from "@assets/ic_up.svg";
-import { mockupMissionList } from "@constants/mockup";
-import MissionCard from "@components/mission-card/MissionCard";
+import { ic_down, ic_up } from "@assets/index";
+import { mockupMissionList } from "@constants/index";
+import { MissionCard } from "@components/index";
 
 export default function PageClient() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);

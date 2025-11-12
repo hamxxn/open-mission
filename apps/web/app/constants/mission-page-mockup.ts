@@ -1,4 +1,4 @@
-import { MissionInfo } from "@/types/mission-info";
+import type { MissionInfo } from "@type/index";
 
 export const missionMockup: MissionInfo = {
   title: "오픈미션:프리코스 챌린지 ",

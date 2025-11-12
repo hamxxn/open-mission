@@ -1,6 +1,8 @@
-import { JudgmentStatus } from "@constants/judgment-status";
-import { SubmissionMethod } from "@constants/submit-method";
-import { MissionStatus } from "@constants/mission-status";
+import type {
+  JudgmentStatus,
+  SubmissionMethod,
+  MissionStatus,
+} from "@constants/index";
 
 export interface Judgment {
   url: string;

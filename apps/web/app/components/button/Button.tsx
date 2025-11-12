@@ -16,12 +16,12 @@ const getButtonClassName = (disabled: boolean, className?: string) => {
   );
 };
 
-export const Button = ({
+export default function Button({
   children,
   className,
   disabled = false,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
   return (
     <button
       className={getButtonClassName(disabled, className)}
@@ -31,4 +31,4 @@ export const Button = ({
       {children}
     </button>
   );
-};
+}

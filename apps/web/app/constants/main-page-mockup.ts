@@ -1,6 +1,4 @@
-import { Mission } from "@type/mission";
-import { User } from "@type/user";
-import { TechCourse } from "@type/tech-course";
+import type { Mission, TechCourse } from "@type/index";
 
 export const techCourseMockup: TechCourse = {
   generation: "8",
@@ -9,10 +7,6 @@ export const techCourseMockup: TechCourse = {
   startDateTime: new Date("2025-09-29T15:00:00"),
   endDateTime: new Date("2025-10-10T10:00:00"),
   status: "CLOSED",
-};
-
-export const userMockup: User = {
-  submitted: true,
 };
 
 export const mockupMissionList: Mission[] = [
@@ -81,6 +75,39 @@ export const mockupMissionList: Mission[] = [
   },
   {
     week: 4,
+    startDateTime: new Date("2025-11-04T15:00:00"),
+    submissionStartDateTime: new Date("2025-11-17T15:00:00"),
+    endDateTime: new Date("2025-11-25T00:00:00"),
+    submissionMethod: "PR",
+    status: "OPEN",
+    submitted: false,
+    testable: false,
+    judgment: undefined,
+  },
+  {
+    week: 5,
+    startDateTime: new Date("2025-11-04T15:00:00"),
+    submissionStartDateTime: new Date("2025-11-17T15:00:00"),
+    endDateTime: new Date("2025-11-25T00:00:00"),
+    submissionMethod: "PR",
+    status: "OPEN",
+    submitted: false,
+    testable: false,
+    judgment: undefined,
+  },
+  {
+    week: 6,
+    startDateTime: new Date("2025-11-04T15:00:00"),
+    submissionStartDateTime: new Date("2025-11-17T15:00:00"),
+    endDateTime: new Date("2025-11-25T00:00:00"),
+    submissionMethod: "PR",
+    status: "OPEN",
+    submitted: false,
+    testable: false,
+    judgment: undefined,
+  },
+  {
+    week: 7,
     startDateTime: new Date("2025-11-04T15:00:00"),
     submissionStartDateTime: new Date("2025-11-17T15:00:00"),
     endDateTime: new Date("2025-11-25T00:00:00"),

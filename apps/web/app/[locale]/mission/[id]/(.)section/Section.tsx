@@ -1,6 +1,6 @@
 import React from "react";
 
-import ListHeader from "@/[locale]/mission/[id]/components/list-header";
+import { ListHeader } from "@/[locale]/mission/[id]/components/index";
 
 interface SectionProps {
   title: string;

@@ -1,4 +1,4 @@
-import { MissionStatus } from "@/constants/mission-status";
+import type { MissionStatus } from "@constants/index";
 
 export interface MissionInfo {
   title: string;

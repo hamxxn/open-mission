@@ -1,6 +1,8 @@
 import { Mission } from "@type/mission";
-import MissionInfo from "@components/mission-card/components/MissionInfo";
-import MissionTestResult from "@components/mission-card/components/MissionTestResult";
+import {
+  MissionInfo,
+  MissionTestResult,
+} from "@components/mission-card/components";
 
 interface MissionCardProps {
   mission: Mission;

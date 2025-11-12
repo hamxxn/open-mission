@@ -1,4 +1,4 @@
-import { TechCourseStatus } from "@constants/tech-course-status";
+import type { TechCourseStatus } from "@constants/index";
 
 export interface TechCourse {
   generation: string;

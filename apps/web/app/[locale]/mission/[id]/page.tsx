@@ -1,5 +1,5 @@
-import { missionMockup } from "@constants/mission-mockup";
-import List from "@/[locale]/mission/[id]/components/list";
+import { missionMockup } from "@constants/index";
+import { List } from "@/[locale]/mission/[id]/components/index";
 import Section from "@/[locale]/mission/[id]/(.)section/Section";
 import PageClient from "@/[locale]/mission/[id]/page.client";
 

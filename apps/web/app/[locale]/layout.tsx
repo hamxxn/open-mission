@@ -3,7 +3,7 @@ import { getTimeZone, setRequestLocale } from "next-intl/server";
 import { routing } from "@i18n/routing";
 
 import "@styles/global.css";
-import Header from "@components/header/Header";
+import { Header } from "@components/index";
 
 export default async function RootLayout({
   children,

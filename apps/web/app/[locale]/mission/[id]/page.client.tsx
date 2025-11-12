@@ -3,8 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
-import { Button } from "@components/button/Button";
-import type { MissionStatus } from "@constants/mission-status";
+import { Button } from "@components/index";
+import type { MissionStatus } from "@constants/index";
 
 interface PageClientProps {
   submissionStartDateTime: Date;
