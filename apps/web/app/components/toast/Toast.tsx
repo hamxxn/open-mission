@@ -10,8 +10,9 @@ interface ToastProps {
 export default function Toast({ messageId, sender }: ToastProps) {
   const router = useRouter();
   const handleClick = () => {
-    router.push(`/message/${messageId}`);
+    router.push(`/[locale]/message/${messageId}`);
   };
+
   return (
     <div className="fixed right-[5rem] bottom-[30%] z-[999] ">
       <div
