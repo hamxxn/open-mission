@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useVirtualizer } from "@tanstack/react-virtual";
 
 import { ic_down, ic_up } from "@assets/index";
-import { mockupMissionList } from "@constants/index";
+import { mockupMissionList } from "@/mock/index";
 import { MissionCard } from "@components/index";
 
 export default function PageClient() {

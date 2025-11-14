@@ -1,4 +1,4 @@
-import { missionMockup } from "@constants/index";
+import { missionMockup } from "@/mock/index";
 import { List } from "@/[locale]/mission/[id]/components/index";
 import Section from "@/[locale]/mission/[id]/(.)section/Section";
 import PageClient from "@/[locale]/mission/[id]/page.client";
