@@ -112,4 +112,20 @@
     font-size: var(--text-caption2);
     font-weight: 400;
   }
+
+  @keyframes toast-glow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.8);
+    }
+    40% {
+      box-shadow: 0 0 0 12px rgba(248, 113, 113, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(248, 113, 113, 0);
+    }
+  }
+
+  .animate-toast-glow {
+    animation: toast-glow 3s ease-out infinite;
+  }
 }
