@@ -37,7 +37,7 @@ export default function PageClient({
   };
 
   return (
-    <div className="w-400 bg-white px-8 py-[3.2rem] flex gap-[1.6rem]">
+    <div className="w-[100rem] bg-white px-8 py-[3.2rem] flex gap-[1.6rem]">
       <Button
         className="w-full bg-white border border-gray-900 text-gray-900 rounded-none"
         onClick={handleBackButtonClick}

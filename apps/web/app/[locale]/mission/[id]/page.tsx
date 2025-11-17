@@ -6,7 +6,7 @@ import PageClient from "@/[locale]/mission/[id]/page.client";
 export default function page() {
   return (
     <div className="w-full flex-1 py-28 flex flex-col items-center bg-gray-200">
-      <div className="flex flex-col items-center w-400 bg-white px-8 py-[3.2rem]">
+      <div className="flex flex-col items-center w-[100rem] bg-white px-8 py-[3.2rem]">
         <h1 className="w-full text-gray-900 ko-text-head1 border-b border-gray-300 pb-[0.3rem]">
           {missionMockup.title}
         </h1>

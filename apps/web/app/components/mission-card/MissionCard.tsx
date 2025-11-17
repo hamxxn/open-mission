@@ -22,7 +22,7 @@ export default function MissionCard({ mission }: MissionCardProps) {
   } = mission;
 
   return (
-    <div className="flex flex-col border border-gray-300 px-[2.4rem] py-[2rem] mb-[1.6rem]">
+    <div className="relative flex flex-col border border-gray-300 px-[2.4rem] py-[2rem] mb-[1.6rem]">
       <MissionInfo
         week={week}
         startDateTime={startDateTime}
