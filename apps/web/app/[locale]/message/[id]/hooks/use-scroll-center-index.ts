@@ -6,14 +6,20 @@ import { useEffect, useRef, useState } from "react";
 export function useScrollCenterIndex<T extends HTMLElement>() {
   const containerRef = useRef<T | null>(null);
   const [centerIndex, setCenterIndex] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const containerElement = containerRef.current;
     if (!containerElement) return;
-    const children = Array.from(containerElement.children) as HTMLElement[];
-    if (!children.length) return;
+
+    let scrollTimer: NodeJS.Timeout | null = null;
 
     const handleScroll = () => {
+      setIsScrolling(true);
+
+      const children = Array.from(containerElement.children) as HTMLElement[];
+      if (!children.length) return;
+
       const containerRect = containerElement.getBoundingClientRect();
       const containerCenter = containerRect.left + containerRect.width / 2;
 
@@ -32,14 +38,23 @@ export function useScrollCenterIndex<T extends HTMLElement>() {
       });
 
       setCenterIndex(closestIndex);
+
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        setIsScrolling(false);
+      }, 150);
     };
 
     handleScroll();
     containerElement.addEventListener("scroll", handleScroll, {
       passive: true,
     });
-    return () => containerElement.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      containerElement.removeEventListener("scroll", handleScroll);
+      if (scrollTimer) clearTimeout(scrollTimer);
+    };
   }, []);
 
-  return { containerRef, centerIndex, setCenterIndex };
+  return { containerRef, centerIndex, isScrolling };
 }
