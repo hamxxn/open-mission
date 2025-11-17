@@ -20,7 +20,7 @@ export default function Article({
   isCenter = false,
 }: ArticleProps) {
   const bg = backgroundImageWebp || backgroundImage;
-  const duration = 800;
+  const duration = 1000;
 
   return (
     <Link
