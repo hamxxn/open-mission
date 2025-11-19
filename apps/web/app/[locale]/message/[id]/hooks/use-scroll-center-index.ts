@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 // 가운데 카드 인덱스를 반환하는 훅
-export function useScrollCenterIndex<T extends HTMLElement>() {
+export function useScrollCenterIndex<T extends HTMLElement>(): {
+  containerRef: React.RefObject<T | null>;
+  centerIndex: number;
+  isScrolling: boolean;
+} {
   const containerRef = useRef<T | null>(null);
   const [centerIndex, setCenterIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -12,7 +16,7 @@ export function useScrollCenterIndex<T extends HTMLElement>() {
     const containerElement = containerRef.current;
     if (!containerElement) return;
 
-    let scrollTimer: NodeJS.Timeout | null = null;
+    const scrollTimerRef = { current: null as NodeJS.Timeout | null };
 
     const handleScroll = () => {
       setIsScrolling(true);
@@ -39,8 +43,8 @@ export function useScrollCenterIndex<T extends HTMLElement>() {
 
       setCenterIndex(closestIndex);
 
-      if (scrollTimer) clearTimeout(scrollTimer);
-      scrollTimer = setTimeout(() => {
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => {
         setIsScrolling(false);
       }, 150);
     };
@@ -52,7 +56,7 @@ export function useScrollCenterIndex<T extends HTMLElement>() {
 
     return () => {
       containerElement.removeEventListener("scroll", handleScroll);
-      if (scrollTimer) clearTimeout(scrollTimer);
+      if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
     };
   }, []);
 

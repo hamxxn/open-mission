@@ -11,9 +11,8 @@ import {
 export default function ArticleSliderClient() {
   const { centerIndex, containerRef, isScrolling } =
     useScrollCenterIndex<HTMLDivElement>();
-  const { scrollToIndex } = useScrollToIndex(
-    containerRef as React.RefObject<HTMLElement>
-  );
+  const { scrollToIndex } = useScrollToIndex(containerRef);
+  const DURATION = 400;
 
   return (
     <div className="relative w-full py-[5rem]">
@@ -36,7 +35,7 @@ export default function ArticleSliderClient() {
               className={cn(
                 `
                 snap-center flex-shrink-0 px-[1rem]
-                transition-transform duration-300 ease-out
+                transition-transform duration-[${DURATION}ms] ease-out
                 scrollbar-hide
                 `,
                 isCenter
@@ -51,16 +50,16 @@ export default function ArticleSliderClient() {
       </div>
 
       {/* dot 영역 */}
-      <div className="mt-[2rem] flex items-center justify-center gap-[0.5rem]">
+      <div className="mt-[2rem] flex items-center justify-center gap-[1rem]">
         {articleMockup.map((_, i) => (
           <button
             key={i}
-            onClick={() => scrollToIndex(i)}
+            onClick={() => scrollToIndex?.(i)}
             className={cn(
-              "rounded-[1rem] transition-all duration-300",
+              `rounded-[1rem] transition-all duration-[${DURATION}ms] cursor-pointer`,
               centerIndex === i
-                ? "w-[2.3rem] h-[1.3rem] bg-gray-900"
-                : "w-[1rem] h-[1rem] bg-gray-400 hover:bg-gray-500"
+                ? "w-[2.3rem] h-[1.5rem] bg-gray-900"
+                : "w-[1.5rem] h-[1.5rem] bg-gray-400 hover:bg-gray-500"
             )}
           />
         ))}
